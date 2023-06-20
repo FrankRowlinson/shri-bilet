@@ -1,0 +1,11 @@
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.logo {
+  font-size: 32px;
+  line-height: 37.5px;
+  font-weight: 700;
+}
