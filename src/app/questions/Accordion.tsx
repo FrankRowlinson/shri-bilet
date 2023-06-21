@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import classNames from "classnames";
 
 import styles from "./Accordion.module.css";
@@ -8,25 +8,34 @@ import Image from "next/image";
 
 interface Props {
   title: string;
+  id: number;
+  active: number | undefined;
+  setActive: React.Dispatch<SetStateAction<number | undefined>>;
   children: React.ReactNode;
 }
 
-export default function Accordion({ title, children }: Props) {
-  const [open, setOpen] = useState(false);
-
+export default function Accordion({
+  title,
+  id,
+  setActive,
+  active,
+  children,
+}: Props) {
   const contentClass = classNames({
     [styles.content]: true,
-    [styles.open]: open,
+    [styles.open]: active === id,
   });
+
   const iconClass = classNames({
     [styles.icon]: true,
-    [styles.open]: open,
+    [styles.open]: active === id,
   });
+
   return (
     <div
       className={classNames("paper", styles.accordion)}
       onClick={() => {
-        setOpen((prev) => !prev);
+        setActive((currentActive) => (currentActive === id ? undefined : id));
       }}
     >
       <div className={styles.title}>
@@ -35,8 +44,8 @@ export default function Accordion({ title, children }: Props) {
           className={iconClass}
           src='icons/arrow.svg'
           alt=''
-          width={32}
-          height={32}
+          width={24}
+          height={24}
         />
       </div>
       <div className={contentClass}>

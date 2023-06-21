@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Accordion from "./Accordion";
 
 const questions = [
@@ -10,7 +13,7 @@ const questions = [
   {
     id: 2,
     title: "Какой компании принадлежит Билетопоиск?",
-    content: "Компания Билетопоиск является частью экосистемы Шмяндекса.",
+    content: "Компания Билетопоиск является частью экосистемы Яндекса.",
   },
   {
     id: 3,
@@ -26,11 +29,21 @@ const questions = [
 ];
 
 export default function Questions() {
+  const [active, setActive] = useState<number | undefined>();
   return (
     <section className='spaced'>
+      <div className='paper'>
+        <h1>Вопросы и ответы</h1>
+      </div>
       {questions.map((q) => {
         return (
-          <Accordion key={q.id} title={q.title}>
+          <Accordion
+            key={q.id}
+            title={q.title}
+            setActive={setActive}
+            active={active}
+            id={q.id}
+          >
             {q.content}
           </Accordion>
         );
