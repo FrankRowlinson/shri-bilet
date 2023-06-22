@@ -1,0 +1,28 @@
+.container {
+  display: grid;
+  grid-template: 1.25rem / 1.25rem 1.1rem 1.25rem;
+  column-gap: 0.4rem;
+}
+
+.icon-button {
+  border: none;
+  outline: none;
+  border-radius: 0.25rem;
+  background: #ff5500;
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  background: #e94e00;
+}
+
+.icon-button:disabled {
+  cursor: inherit;
+  background: #ffa375;
+}
+
+.counter {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+}

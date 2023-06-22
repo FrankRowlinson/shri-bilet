@@ -2,10 +2,11 @@
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 .logo {
-  font-size: 32px;
-  line-height: 37.5px;
+  font-size: 1.6rem;
+  line-height: 2rem;
   font-weight: 700;
 }
