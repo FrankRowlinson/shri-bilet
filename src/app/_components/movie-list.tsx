@@ -1,9 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import classNames from "classnames";
-
-import { getAllMovies, getMoviesByCinemaId } from "@/api/movies";
 
 import styles from "./movie-list.module.css";
 import MovieCard from "../_shared-components/movie-card";
