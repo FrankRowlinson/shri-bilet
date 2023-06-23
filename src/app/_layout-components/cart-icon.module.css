@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter {
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.55rem;
+  color: white;
+  background: var(--orange);
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}

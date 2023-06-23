@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 
+import CartIcon from "./cart-icon";
 import styles from "./navbar.module.css";
 
 export function Navbar() {
@@ -10,7 +10,7 @@ export function Navbar() {
         <Link href='/'>
           <div className={styles.logo}>Билетопоиск</div>
         </Link>
-        <Image src='icons/cart.svg' alt='' width={24} height={24} />
+        <CartIcon />
       </nav>
     </header>
   );
