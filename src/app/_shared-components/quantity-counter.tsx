@@ -22,23 +22,22 @@ function IconButton({ onClick, disabled, children }: ButtonProps) {
 
 type CounterProps = {
   count: number;
-  setCount: React.Dispatch<SetStateAction<number>>;
+  increment: () => void;
+  decrement: () => void;
 };
 
-export default function QuantityCounter({ count, setCount }: CounterProps) {
+export default function QuantityCounter({
+  count,
+  increment,
+  decrement,
+}: CounterProps) {
   return (
     <div className={styles.container}>
-      <IconButton
-        disabled={count === 0}
-        onClick={() => setCount((prev) => prev - 1)}
-      >
+      <IconButton disabled={count === 0} onClick={() => decrement()}>
         <Image src='icons/minus.svg' alt='' width={10} height={10} />
       </IconButton>
       <span className={styles.counter}>{count}</span>
-      <IconButton
-        disabled={count === 30}
-        onClick={() => setCount((prev) => prev + 1)}
-      >
+      <IconButton disabled={count === 30} onClick={() => increment()}>
         <strong>
           <Image src='icons/plus.svg' alt='' width={10} height={10} />
         </strong>

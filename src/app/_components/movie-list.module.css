@@ -2,20 +2,3 @@
   width: 100%;
   margin-left: 1.2rem;
 }
-
-.card {
-  width: 100%;
-  display: grid;
-  grid-template: 120px / 100px auto 4.4rem;
-  gap: 1.5rem;
-  overflow: hidden;
-}
-
-.image {
-  object-fit: cover;
-  border-radius: 0.5rem;
-}
-
-.title {
-  margin-bottom: 0.25rem;
-}

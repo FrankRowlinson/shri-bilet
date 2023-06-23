@@ -5,36 +5,8 @@ import classNames from "classnames";
 
 import { getAllMovies, getMoviesByCinemaId } from "@/api/movies";
 
-import QuantityCounter from "@/app/_shared-components/quantity-counter";
 import styles from "./movie-list.module.css";
-import Image from "next/image";
-import { GENRES } from "@/constants";
-
-type CardProps = {
-  movie: Movie;
-};
-
-function MovieCard({ movie }: CardProps) {
-  const [count, setCount] = useState(0);
-  return (
-    <div className={classNames("paper", styles.card)}>
-      <Image
-        className={styles.image}
-        src={movie.posterUrl}
-        alt=''
-        width={100}
-        height={120}
-      />
-      <div>
-        <h3 className={styles.title}>{movie.title}</h3>
-        <p>
-          <i>{GENRES[movie.genre]}</i>
-        </p>
-      </div>
-      <QuantityCounter count={count} setCount={setCount} />
-    </div>
-  );
-}
+import MovieCard from "./movie-card";
 
 type ListProps = {
   search: SearchState;
