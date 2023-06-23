@@ -1,0 +1,26 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions {
+  display: flex;
+}
+
+.left {
+  margin-right: 0.5rem;
+}

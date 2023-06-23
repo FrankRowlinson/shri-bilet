@@ -1,0 +1,31 @@
+.button {
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: var(--orange) 1px solid;
+}
+
+.button:hover {
+  border: var(--orange-hover) 1px solid;
+}
+
+.primary {
+  color: white;
+  background: var(--orange);
+}
+
+.primary:hover {
+  background: var(--orange-hover);
+}
+
+.outlined {
+  background: transparent;
+  color: var(--orange);
+}
+
+.outlined:hover {
+  color: var(--orange-hover);
+}
