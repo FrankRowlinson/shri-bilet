@@ -4,7 +4,7 @@ export const API_ROUTES = {
   cinemas: "cinemas",
   movies: "movies",
   moviesByCinemaId: "movies?cinemaId=",
-  movieById: "movies?movieId=",
+  movieById: "movie?movieId=",
   reviews: "reviews",
   reviewsByMovieId: "reviews?movieId=",
 };

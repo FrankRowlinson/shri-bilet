@@ -10,3 +10,8 @@ export const selectTotalTickets = (state: RootState): number => {
   const cart = selectCart(state);
   return Object.values(cart).reduce((acc, el) => acc + el, 0);
 };
+
+export const selectMovieIds = (state: RootState): string[] => {
+  const cart = selectCart(state);
+  return Object.keys(cart);
+};
