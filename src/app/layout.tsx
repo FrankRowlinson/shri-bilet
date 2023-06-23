@@ -2,6 +2,7 @@ import "./globals.css";
 import { Roboto } from "next/font/google";
 
 import { Navbar, Footer } from "./_layout-components";
+import StoreProvider from "@/store/StoreProvider";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -18,13 +19,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='ru'>
-      <body className={roboto.className}>
-        <div id='modal'></div>
-        <Navbar />
-        <main className='content'>{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang='ru'>
+        <body className={roboto.className}>
+          <div id='modal'></div>
+          <Navbar />
+          <main className='content'>{children}</main>
+          <Footer />
+        </body>
+      </html>
+    </StoreProvider>
   );
 }
