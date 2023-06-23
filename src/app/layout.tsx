@@ -4,7 +4,7 @@ import { Roboto } from "next/font/google";
 import { Navbar, Footer } from "./_layout-components";
 import StoreProvider from "@/store/StoreProvider";
 
-const roboto = Roboto({
+export const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
 });
@@ -23,6 +23,7 @@ export default function RootLayout({
       <html lang='ru'>
         <body className={roboto.className}>
           <div id='modal'></div>
+          <div id='dropdown'></div>
           <Navbar />
           <main className='content'>{children}</main>
           <Footer />

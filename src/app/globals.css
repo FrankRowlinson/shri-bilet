@@ -1,6 +1,10 @@
 :root {
   --orange: #f50;
   --orange-hover: #e94e00;
+
+  --input-placeholder: #999fa6;
+  --input-border: #e1e3e6;
+  --input-color: #1b1f23;
 }
 
 * {

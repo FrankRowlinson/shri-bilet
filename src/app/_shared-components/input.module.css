@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  color: var(--input-color);
+
+  border: 1px solid var(--input-border);
+  border-radius: 0.5rem;
+  outline: none;
+
+  transition: all 0.2s linear;
+}
+
+.input:focus {
+  border: 1px solid var(--input-placeholder);
+}
+
+.input::placeholder {
+  color: var(--input-placeholder);
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-family: var(--font-roboto);
+  opacity: 1;
+}
+
+.label {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}

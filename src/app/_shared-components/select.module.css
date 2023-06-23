@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.placeholder {
+  font-size: 0.9rem;
+  color: var(--input-placeholder);
+}
+
+.value {
+  color: var(--input-color);
+}
+
+.select {
+  padding: 0.6rem 1rem;
+
+  user-select: none;
+  cursor: pointer;
+
+  border: 1px solid var(--input-border);
+  border-radius: 0.5rem;
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 3;
+
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0.1rem 0.5rem 0.02rem rgba(0, 0, 0, 0.08);
+}
+
+.option {
+  padding: 0.75rem;
+  background: white;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: var(--input-border);
+}

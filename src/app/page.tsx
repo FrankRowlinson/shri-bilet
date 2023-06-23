@@ -3,6 +3,8 @@
 import { useReducer } from "react";
 import { Filter, MovieList } from "./_components/";
 import styles from "./page.module.css";
+import Input from "./_shared-components/input";
+import Select from "./_shared-components/select";
 
 enum SearchActionKind {
   SEARCH_BY_NAME = "SEARCH_BY_NAME",
@@ -43,12 +45,30 @@ export default function Main() {
     <div className={styles.container}>
       <Filter>
         <h4>Фильтры поиска</h4>
-        <input
+        <Select
+          label='Жанр'
+          placeholder='Выберите жанр'
+          value={search.genre}
+          setValue={(value) =>
+            dispatch({
+              type: SearchActionKind.SEARCH_BY_GENRE,
+              payload: value,
+            })
+          }
+        >
+          <Select.Option value='comedy' />
+          <Select.Option value='horror' />
+          <Select.Option value='action' />
+          <Select.Option value='fantasy' />
+        </Select>
+        <Input
           value={search.title}
+          label='Название'
+          placeholder='Введите название'
           onChange={(e) => {
             dispatch({
               type: SearchActionKind.SEARCH_BY_NAME,
-              payload: e.target.value,
+              payload: e.currentTarget.value,
             });
           }}
         />
