@@ -4,10 +4,7 @@ import classNames from "classnames";
 
 import styles from "./movie-list.module.css";
 import MovieCard from "../_shared-components/movie-card";
-import {
-  useGetMoviesByCinemaIdQuery,
-  useGetMoviesQuery,
-} from "@/store/services/moviesApi";
+import { useGetMoviesForMainPageQuery } from "@/store/services/moviesApi";
 
 type ListProps = {
   search: SearchState;
@@ -16,14 +13,11 @@ type ListProps = {
 export function MovieList({ search }: ListProps) {
   const { title, genre, cinema } = search;
 
-  const allMovies = useGetMoviesQuery(undefined, { skip: !!cinema });
-  const moviesByCinema = useGetMoviesByCinemaIdQuery(search.cinema, {
-    skip: !cinema,
-  });
-
-  const movies = allMovies.data || moviesByCinema.data;
-  const error = allMovies.error || moviesByCinema.error;
-  const isLoading = allMovies.isLoading || moviesByCinema.isLoading;
+  const {
+    data: movies,
+    isLoading,
+    error,
+  } = useGetMoviesForMainPageQuery(cinema);
 
   if (isLoading) {
     return <div>Loading...</div>;

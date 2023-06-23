@@ -6,10 +6,6 @@ export const moviesApi = createApi({
   reducerPath: "moviesApi",
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
-    getMovies: builder.query<Movie[], void>({ query: () => API_ROUTES.movies }),
-    getMoviesByCinemaId: builder.query<Movie[], string>({
-      query: (cinemaId) => `${API_ROUTES.moviesByCinemaId}${cinemaId}`,
-    }),
     getMovie: builder.query<Movie[], string>({
       query: (id) => `${API_ROUTES.movieById}${id}`,
     }),
@@ -23,12 +19,27 @@ export const moviesApi = createApi({
           : { error: response[0].error as FetchBaseQueryError };
       },
     }),
+    getMoviesForMainPage: builder.query<Movie[], string>({
+      async queryFn(cinemaId, _queryApi, _extraOptions, fetchWithBQ) {
+        if (!cinemaId) {
+          const response = await fetchWithBQ(`${API_ROUTES.movies}`);
+          return response.data
+            ? { data: response.data as Movie[] }
+            : { error: response.error as FetchBaseQueryError };
+        }
+        const response = await fetchWithBQ(
+          `${API_ROUTES.moviesByCinemaId}${cinemaId}`
+        );
+        return response.data
+          ? { data: response.data as Movie[] }
+          : { error: response.error as FetchBaseQueryError };
+      },
+    }),
   }),
 });
 
 export const {
-  useGetMoviesQuery,
-  useGetMoviesByCinemaIdQuery,
   useGetMovieQuery,
   useGetMoviesForCartQuery,
+  useGetMoviesForMainPageQuery,
 } = moviesApi;
