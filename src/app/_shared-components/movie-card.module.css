@@ -1,3 +1,7 @@
+.container {
+  display: flex;
+}
+
 .card {
   width: 100%;
   display: grid;
@@ -13,4 +17,8 @@
 
 .title {
   margin-bottom: 0.25rem;
+}
+
+.close {
+  margin-left: 1.5rem;
 }

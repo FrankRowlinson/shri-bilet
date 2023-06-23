@@ -10,10 +10,12 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    // increment by 1
     addTicket: (state, { payload }) => {
       const amount = state[payload] || 0;
       state[payload] = amount + 1;
     },
+    // decrement by 1
     removeTicket: (state, { payload }) => {
       const amount = state[payload];
       if (!amount) {
@@ -26,6 +28,10 @@ const cartSlice = createSlice({
       }
 
       state[payload] = amount - 1;
+    },
+    // delete whole stack of tickets for 1 movie
+    deleteTicket: (state, { payload }) => {
+      delete state[payload];
     },
   },
 });

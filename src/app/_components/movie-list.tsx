@@ -6,7 +6,7 @@ import classNames from "classnames";
 import { getAllMovies, getMoviesByCinemaId } from "@/api/movies";
 
 import styles from "./movie-list.module.css";
-import MovieCard from "./movie-card";
+import MovieCard from "../_shared-components/movie-card";
 
 type ListProps = {
   search: SearchState;
@@ -46,7 +46,7 @@ export function MovieList({ search }: ListProps) {
             );
           })
           .map((movie: Movie) => {
-            return <MovieCard movie={movie} key={movie.id} />;
+            return <MovieCard movie={movie} key={movie.id} variant='regular' />;
           })
       )}
     </div>
