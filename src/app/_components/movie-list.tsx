@@ -38,8 +38,7 @@ export function MovieList({ search }: ListProps) {
           })
           .filter((movie: Movie) => {
             return (
-              !title ||
-              movie.title.toLowerCase().startsWith(title.toLowerCase())
+              !title || movie.title.toLowerCase().includes(title.toLowerCase())
             );
           })
           .map((movie: Movie) => {
