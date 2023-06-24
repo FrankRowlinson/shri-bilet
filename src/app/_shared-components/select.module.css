@@ -28,6 +28,11 @@
 
   border: 1px solid var(--input-border);
   border-radius: 0.5rem;
+  transition: all 0.2s linear;
+}
+
+.select.open {
+  border: 1px solid var(--orange);
 }
 
 .icon {

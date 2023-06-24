@@ -16,7 +16,7 @@
 }
 
 .input:focus {
-  border: 1px solid var(--input-placeholder);
+  border: 1px solid var(--orange);
 }
 
 .input::placeholder {

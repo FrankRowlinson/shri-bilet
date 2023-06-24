@@ -54,7 +54,7 @@ function Select({
       <div className={styles.container}>
         <label className={styles.label}>{label}</label>
         <div
-          className={styles.select}
+          className={classNames(styles.select, open && styles.open)}
           onClick={(event) => {
             updateDropdownCoords(event);
             setOpen((prev) => !prev);
