@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 
-.image {
+.poster {
   object-fit: cover;
   border-radius: 0.5rem;
 }

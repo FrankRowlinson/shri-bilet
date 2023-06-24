@@ -6,7 +6,7 @@ export const moviesApi = createApi({
   reducerPath: "moviesApi",
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
-    getMovie: builder.query<Movie[], string>({
+    getMovie: builder.query<Movie, string>({
       query: (id) => `${API_ROUTES.movieById}${id}`,
     }),
     getMoviesForCart: builder.query<Movie[], string[]>({

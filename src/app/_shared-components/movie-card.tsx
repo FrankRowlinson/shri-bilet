@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
 
@@ -50,14 +51,16 @@ export function MovieCard({ movie, variant }: CardProps) {
       <div className={classNames("paper", styles.container)}>
         <div className={styles.card}>
           <Image
-            className={styles.image}
+            className={styles.poster}
             src={movie.posterUrl}
             alt=''
             width={100}
             height={120}
           />
           <div>
-            <h3 className={styles.title}>{movie.title}</h3>
+            <h3 className={styles.title}>
+              <Link href={`film/${movie.id}`}>{movie.title}</Link>
+            </h3>
             <p>
               <i>{GENRES[movie.genre]}</i>
             </p>

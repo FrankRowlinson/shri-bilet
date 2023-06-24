@@ -1,0 +1,26 @@
+.card {
+  display: grid;
+  grid-template: 375px / 300px 1fr;
+  gap: 2rem;
+}
+
+.poster {
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 1.2rem;
+}
+
+.feature {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.description {
+  margin-top: 1.5rem;
+}
