@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
 
 import { cartActions } from "@/store/features/cart";
 import { selectTicketAmount } from "@/store/features/cart/selectors";
-import { RootState, useAppDispatch } from "@/store/store";
+import { useAppDispatch, useAppSelector } from "@/store/store";
 import { GENRES } from "@/constants";
 
 import { Modal, QuantityCounter } from "./";
@@ -20,8 +19,8 @@ type CardProps = {
 export function MovieCard({ movie, variant }: CardProps) {
   const [approvalOpen, setApprovalOpen] = useState(false);
   const dispatch = useAppDispatch();
-  const count = useSelector(
-    (state: RootState) => selectTicketAmount(state, movie.id) || 0
+  const count = useAppSelector(
+    (state) => selectTicketAmount(state, movie.id) || 0
   );
 
   const removeTicket = () => {

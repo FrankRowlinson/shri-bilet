@@ -1,16 +1,15 @@
 "use client";
 
-import { useSelector } from "react-redux";
 import Image from "next/image";
 import Link from "next/link";
 
-import { RootState } from "@/store/store";
+import { useAppSelector } from "@/store/store";
 import { selectTotalTickets } from "@/store/features/cart/selectors";
 
 import styles from "./cart-icon.module.css";
 
 export function CartIcon() {
-  const count = useSelector((state: RootState) => selectTotalTickets(state));
+  const count = useAppSelector((state) => selectTotalTickets(state));
   return (
     <Link href='/cart'>
       <div className={styles.container}>
