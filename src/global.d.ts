@@ -18,4 +18,9 @@ declare global {
     genre: string;
     cinema: string;
   }
+
+  interface SearchAction {
+    type: string;
+    payload: string;
+  }
 }

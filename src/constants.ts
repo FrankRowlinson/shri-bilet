@@ -14,4 +14,5 @@ export const GENRES: { [key: string]: string } = {
   fantasy: "Фэнтези",
   action: "Боевик",
   comedy: "Комедия",
+  "": "Не выбран",
 };

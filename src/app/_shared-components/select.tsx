@@ -56,7 +56,7 @@ function Select({
           className={styles.select}
           onClick={(event) => {
             updateDropdownCoords(event);
-            setOpen(true);
+            setOpen((prev) => !prev);
           }}
         >
           {!!value ? (
