@@ -13,6 +13,11 @@ declare global {
     reviewIds: string[];
   }
 
+  interface Cinema {
+    id: string;
+    name: string;
+  }
+
   interface SearchState {
     title: string;
     genre: string;

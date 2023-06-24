@@ -1,14 +1,14 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
-import Portal from "../_hocs/portal";
-import styles from "./select.module.css";
-import { GENRES } from "./../../constants";
+import { createContext, useContext, useState } from "react";
 import classNames from "classnames";
 
-interface SelectProps {
+import Portal from "../_hocs/portal";
+
+import styles from "./select.module.css";
+
+interface SelectProps extends React.PropsWithChildren {
   placeholder: string;
   value: string;
   setValue: (value: string) => void;
-  children: React.ReactNode[];
   label: string;
 }
 
@@ -60,7 +60,7 @@ function Select({
           }}
         >
           {!!value ? (
-            <span className={styles.value}>{GENRES[value]}</span>
+            <span className={styles.value}>{value}</span>
           ) : (
             <span className={styles.placeholder}>{placeholder}</span>
           )}

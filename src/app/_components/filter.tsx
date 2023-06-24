@@ -2,12 +2,14 @@
 
 import classNames from "classnames";
 
-import { SearchActionKind } from "../page";
+import { GENRES } from "@/constants";
 
-import styles from "./filter.module.css";
+import { SearchActionKind } from "../page";
 import Input from "../_shared-components/input";
 import Select from "../_shared-components/select";
-import { GENRES } from "@/constants";
+
+import styles from "./filter.module.css";
+import { useGetCinemasQuery } from "@/store/services/cinemasApi";
 
 type FilterProps = {
   search: SearchState;
@@ -15,14 +17,27 @@ type FilterProps = {
 };
 
 export function Filter({ search, dispatch }: FilterProps) {
+  const { data: cinemas, isLoading, error } = useGetCinemasQuery();
+
   return (
     <div className={classNames(styles.container, "paper")}>
       <div className={classNames(styles.filters, "spaced")}>
         <h4>Фильтры поиска</h4>
+        <Input
+          value={search.title}
+          label='Название'
+          placeholder='Введите название'
+          onChange={(e) => {
+            dispatch({
+              type: SearchActionKind.SEARCH_BY_NAME,
+              payload: e.currentTarget.value,
+            });
+          }}
+        />
         <Select
           label='Жанр'
           placeholder='Выберите жанр'
-          value={search.genre}
+          value={search.genre ? GENRES[search.genre] : ""}
           setValue={(value) =>
             dispatch({
               type: SearchActionKind.SEARCH_BY_GENRE,
@@ -40,17 +55,40 @@ export function Filter({ search, dispatch }: FilterProps) {
             );
           })}
         </Select>
-        <Input
-          value={search.title}
-          label='Название'
-          placeholder='Введите название'
-          onChange={(e) => {
+        <Select
+          label='Кинотеатр'
+          placeholder='Выберите кинотеатр'
+          value={
+            search.cinema && !!cinemas
+              ? cinemas.filter(
+                  (cinema: Cinema) => cinema.id === search.cinema
+                )[0].name
+              : ""
+          }
+          setValue={(value) =>
             dispatch({
-              type: SearchActionKind.SEARCH_BY_NAME,
-              payload: e.currentTarget.value,
-            });
-          }}
-        />
+              type: SearchActionKind.SEARCH_BY_CINEMA,
+              payload: value,
+            })
+          }
+        >
+          {isLoading ? (
+            <Select.Option id='' displayName='Кинотеатры загружаются...' />
+          ) : (
+            <>
+              <Select.Option id='' displayName='Любой' />
+              {cinemas?.map((cinema: Cinema) => {
+                return (
+                  <Select.Option
+                    key={cinema.id}
+                    id={cinema.id}
+                    displayName={cinema.name}
+                  />
+                );
+              })}
+            </>
+          )}
+        </Select>
       </div>
     </div>
   );
