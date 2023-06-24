@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.loader {
+  display: grid;
+  grid-template-rows: 1rem 3rem;
+  grid-template-columns: 1rem 3rem;
+  gap: 5px;
+  animation: resize infinite 5s ease;
+}
+
+.first,
+.second,
+.third,
+.fourth {
+  background: var(--nav-background);
+  border-radius: 0.25rem;
+}
+
+@keyframes resize {
+  0% {
+    grid-template-rows: 1rem 3rem;
+    grid-template-columns: 1rem 3rem;
+  }
+  25% {
+    grid-template-rows: 1rem 3rem;
+    grid-template-columns: 3rem 1rem;
+  }
+  50% {
+    grid-template-rows: 3rem 1rem;
+    grid-template-columns: 3rem 1rem;
+  }
+  75% {
+    grid-template-rows: 3rem 1rem;
+    grid-template-columns: 1rem 3rem;
+  }
+  100% {
+    grid-template-rows: 1rem 3rem;
+    grid-template-columns: 1rem 3rem;
+  }
+}

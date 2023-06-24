@@ -11,21 +11,23 @@ import { useAppSelector } from "@/store/store";
 
 import styles from "./page.module.css";
 
-import { MovieCard } from "../_shared-components/";
+import { Loader, MovieCard } from "../_shared-components/";
 
-type Props = {};
-
-export default function Cart({}: Props) {
+export default function Cart() {
   const ids = useAppSelector((state) => selectMovieIds(state));
   const amount = useAppSelector((state) => selectTotalTickets(state));
   const { data, isLoading, error } = useGetMoviesForCartQuery(ids);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (!data || error) {
-    return <div>Not found...</div>;
+    return (
+      <div className={styles.container}>
+        <h3>Корзина пуста...</h3>
+      </div>
+    );
   }
 
   return (

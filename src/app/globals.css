@@ -5,6 +5,8 @@
   --input-placeholder: #999fa6;
   --input-border: #e1e3e6;
   --input-color: #1b1f23;
+
+  --nav-background: #333333;
 }
 
 * {
@@ -77,7 +79,6 @@ h4 {
   height: 4.2rem;
 
   font-size: 1rem;
-  background: #333333;
+  background: var(--nav-background);
   color: #ffffff;
-  fill: #ffffff;
 }
