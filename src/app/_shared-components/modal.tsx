@@ -50,7 +50,7 @@ Modal.Header = function Header({ children }: { children: React.ReactNode }) {
       <h3>{children}</h3>
       <Image
         onClick={() => onDecline()}
-        src='icons/close.svg'
+        src='/icons/close.svg'
         alt=''
         width={16}
         height={16}
