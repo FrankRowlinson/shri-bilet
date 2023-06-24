@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Accordion from "./Accordion";
+import Accordion from "./_components/accordion";
 
 const questions = [
   {
