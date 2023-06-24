@@ -1,30 +1,44 @@
 "use client";
 
-import classNames from "classnames";
-
-import { Loader, QuantityCounter } from "@/app/_shared-components";
 import { useGetMovieQuery } from "@/store/services/moviesApi";
 
-import styles from "./page.module.css";
-import Image from "next/image";
+import { Loader } from "@/app/_shared-components";
+
 import MovieInfo from "./_components/movie-info";
+import ReviewSection from "./_components/review-section";
+import { useGetReviewsForMovieQuery } from "@/store/services/reviewsApi";
 
 type Props = { params: { id: string } };
 
 function FilmPage({ params }: Props) {
-  const { data: movie, isLoading, error } = useGetMovieQuery(params.id);
+  const id = params.id;
+  const {
+    data: movie,
+    isLoading: isMovieLoading,
+    error: movieError,
+  } = useGetMovieQuery(id);
+  const {
+    data: reviews,
+    isLoading: areReviewsLoading,
+    error: reviewsError,
+  } = useGetReviewsForMovieQuery(id);
 
-  if (isLoading) {
+  if (isMovieLoading || areReviewsLoading) {
     return <Loader />;
   }
 
-  if (!movie || error) {
+  if (!movie || movieError) {
     return <div>Страница не найдена</div>;
   }
 
   return (
-    <section className='spaced'>
+    <section className='spaced-24'>
       <MovieInfo movie={movie} />
+      {reviewsError ? (
+        <div className='paper'>Не удалось загрузить отзывы</div>
+      ) : (
+        <ReviewSection reviews={reviews} />
+      )}
     </section>
   );
 }
