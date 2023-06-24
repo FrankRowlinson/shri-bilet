@@ -9,7 +9,7 @@ import { selectTotalTickets } from "@/store/features/cart/selectors";
 import styles from "./cart-icon.module.css";
 import Link from "next/link";
 
-export default function CartIcon() {
+export function CartIcon() {
   const count = useSelector((state: RootState) => selectTotalTickets(state));
   return (
     <Link href='/cart'>

@@ -8,12 +8,7 @@ type Props = {
   className?: string;
 };
 
-export default function Button({
-  children,
-  variant,
-  onClick,
-  className,
-}: Props) {
+export function Button({ children, variant, onClick, className }: Props) {
   const buttonClass = classNames(styles.button, styles[variant], className);
 
   return (

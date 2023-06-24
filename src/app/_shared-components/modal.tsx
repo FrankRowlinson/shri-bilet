@@ -1,13 +1,13 @@
 "use client";
 
+import { createContext, useContext } from "react";
+import Image from "next/image";
 import classNames from "classnames";
 
 import Portal from "../_hocs/portal";
 
 import styles from "./modal.module.css";
-import { createContext, useContext } from "react";
-import Image from "next/image";
-import Button from "./button";
+import { Button } from "./";
 
 interface ModalProps {
   onAccept: () => void;
@@ -86,4 +86,4 @@ Modal.Actions = function Actions({ acceptText, declineText }: ActionProps) {
   );
 };
 
-export default Modal;
+export { Modal };

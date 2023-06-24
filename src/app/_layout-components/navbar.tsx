@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import CartIcon from "./cart-icon";
+import { CartIcon } from "./";
 import styles from "./navbar.module.css";
 
 export function Navbar() {

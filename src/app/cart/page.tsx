@@ -11,7 +11,7 @@ import { useAppSelector } from "@/store/store";
 
 import styles from "./page.module.css";
 
-import MovieCard from "../_shared-components/movie-card";
+import { MovieCard } from "../_shared-components/";
 
 type Props = {};
 

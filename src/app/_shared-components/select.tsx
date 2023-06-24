@@ -95,4 +95,4 @@ Select.Option = function Option({
   );
 };
 
-export default Select;
+export { Select };

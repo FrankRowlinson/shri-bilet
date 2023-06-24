@@ -1,10 +1,10 @@
 "use client";
 
-import { SetStateAction, useState } from "react";
+import { SetStateAction } from "react";
+import Image from "next/image";
 import classNames from "classnames";
 
 import styles from "./Accordion.module.css";
-import Image from "next/image";
 
 interface Props {
   title: string;

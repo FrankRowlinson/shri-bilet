@@ -1,6 +1,6 @@
 import Image from "next/image";
+
 import styles from "./quantity-counter.module.css";
-import { SetStateAction } from "react";
 
 type ButtonProps = {
   onClick?: () => void;
@@ -26,11 +26,7 @@ type CounterProps = {
   decrement: () => void;
 };
 
-export default function QuantityCounter({
-  count,
-  increment,
-  decrement,
-}: CounterProps) {
+export function QuantityCounter({ count, increment, decrement }: CounterProps) {
   return (
     <div className={styles.container}>
       <IconButton disabled={count === 0} onClick={() => decrement()}>

@@ -1,23 +1,22 @@
-import classNames from "classnames";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import Image from "next/image";
+import classNames from "classnames";
 
 import { cartActions } from "@/store/features/cart";
 import { selectTicketAmount } from "@/store/features/cart/selectors";
 import { RootState, useAppDispatch } from "@/store/store";
 import { GENRES } from "@/constants";
-import QuantityCounter from "@/app/_shared-components/quantity-counter";
 
+import { Modal, QuantityCounter } from "./";
 import styles from "./movie-card.module.css";
-import { useState } from "react";
-import Modal from "./modal";
 
 type CardProps = {
   movie: Movie;
   variant: "regular" | "cart";
 };
 
-export default function MovieCard({ movie, variant }: CardProps) {
+export function MovieCard({ movie, variant }: CardProps) {
   const [approvalOpen, setApprovalOpen] = useState(false);
   const dispatch = useAppDispatch();
   const count = useSelector(
