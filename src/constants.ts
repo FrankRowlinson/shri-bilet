@@ -10,9 +10,9 @@ export const API_ROUTES = {
 };
 
 export const GENRES: { [key: string]: string } = {
-  horror: "Ужасы",
+  "": "Не выбран",
+  comedy: "Комедия",
   fantasy: "Фэнтези",
   action: "Боевик",
-  comedy: "Комедия",
-  "": "Не выбран",
+  horror: "Ужасы",
 };

@@ -7,6 +7,7 @@ import { SearchActionKind } from "../page";
 import styles from "./filter.module.css";
 import Input from "../_shared-components/input";
 import Select from "../_shared-components/select";
+import { GENRES } from "@/constants";
 
 type FilterProps = {
   search: SearchState;
@@ -29,11 +30,15 @@ export function Filter({ search, dispatch }: FilterProps) {
             })
           }
         >
-          <Select.Option value='' />
-          <Select.Option value='comedy' />
-          <Select.Option value='horror' />
-          <Select.Option value='action' />
-          <Select.Option value='fantasy' />
+          {Object.entries(GENRES).map((genre) => {
+            return (
+              <Select.Option
+                key={genre[0]}
+                id={genre[0]}
+                displayName={genre[1]}
+              />
+            );
+          })}
         </Select>
         <Input
           value={search.title}

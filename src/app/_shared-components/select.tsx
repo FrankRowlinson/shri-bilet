@@ -80,11 +80,17 @@ function Select({
   );
 }
 
-Select.Option = function Option({ value }: { value: string }) {
+Select.Option = function Option({
+  id,
+  displayName,
+}: {
+  id: string;
+  displayName: string;
+}) {
   const { setValue } = useContext(SelectContext);
   return (
-    <div className={styles.option} onClick={() => setValue(value)}>
-      {GENRES[value]}
+    <div className={styles.option} onClick={() => setValue(id)}>
+      {displayName}
     </div>
   );
 };
