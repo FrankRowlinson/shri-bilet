@@ -4,6 +4,7 @@ import classNames from "classnames";
 import Portal from "../_hocs/portal";
 
 import styles from "./select.module.css";
+import Image from "next/image";
 
 interface SelectProps extends React.PropsWithChildren {
   placeholder: string;
@@ -60,10 +61,17 @@ function Select({
           }}
         >
           {!!value ? (
-            <span className={styles.value}>{value}</span>
+            <div className={styles.value}>{value}</div>
           ) : (
-            <span className={styles.placeholder}>{placeholder}</span>
+            <div className={styles.placeholder}>{placeholder}</div>
           )}
+          <Image
+            src='icons/arrow.svg'
+            alt=''
+            width={20}
+            height={20}
+            className={classNames(styles.icon, open && styles.open)}
+          />
         </div>
         {open && (
           <Portal selector='#dropdown'>
