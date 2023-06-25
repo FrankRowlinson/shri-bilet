@@ -41,23 +41,19 @@ export function MovieList({ search }: ListProps) {
   }
 
   return (
-    <div className={classNames(styles.container, "spaced")}>
-      {movies.length === 0 ? (
-        <div>Loading...</div>
-      ) : (
-        movies
-          .filter((movie: Movie) => {
-            return !genre || movie.genre === genre;
-          })
-          .filter((movie: Movie) => {
-            return (
-              !title || movie.title.toLowerCase().includes(title.toLowerCase())
-            );
-          })
-          .map((movie: Movie) => {
-            return <MovieCard movie={movie} key={movie.id} variant='regular' />;
-          })
-      )}
-    </div>
+    <section className={classNames(styles.container, "spaced")}>
+      {movies
+        .filter((movie: Movie) => {
+          return !genre || movie.genre === genre;
+        })
+        .filter((movie: Movie) => {
+          return (
+            !title || movie.title.toLowerCase().includes(title.toLowerCase())
+          );
+        })
+        .map((movie: Movie) => {
+          return <MovieCard movie={movie} key={movie.id} variant='regular' />;
+        })}
+    </section>
   );
 }

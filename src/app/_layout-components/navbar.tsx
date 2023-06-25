@@ -8,7 +8,7 @@ export function Navbar() {
     <header className={styles.sticky}>
       <nav className='nav-container'>
         <Link href='/'>
-          <div className={styles.logo}>Билетопоиск</div>
+          <h1>Билетопоиск</h1>
         </Link>
         <CartIcon />
       </nav>

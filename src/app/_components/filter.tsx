@@ -23,7 +23,7 @@ export function Filter({ search, dispatch }: FilterProps) {
   }
 
   return (
-    <div className={classNames(styles.container, "paper")}>
+    <aside className={classNames(styles.container, "paper")}>
       <div className={classNames(styles.filters, "spaced")}>
         <h4>Фильтры поиска</h4>
         <Input
@@ -93,6 +93,6 @@ export function Filter({ search, dispatch }: FilterProps) {
           )}
         </Select>
       </div>
-    </div>
+    </aside>
   );
 }

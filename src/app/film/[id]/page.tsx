@@ -32,14 +32,14 @@ function FilmPage({ params }: Props) {
   }
 
   return (
-    <section className='spaced-24'>
+    <div className='spaced-24'>
       <MovieInfo movie={movie} />
       {reviewsError ? (
         <Error>Не удалось загрузить отзывы</Error>
       ) : (
         <ReviewSection reviews={reviews} />
       )}
-    </section>
+    </div>
   );
 }
 

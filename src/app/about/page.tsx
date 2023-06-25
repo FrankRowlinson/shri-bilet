@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section className='paper spaced'>
+    <acticle className='paper spaced'>
       <h1>О нас</h1>
       <p>
         Мы — крупнейший сервис о кино в рунете. На нем вы сможете посмотреть
@@ -22,6 +22,6 @@ export default function About() {
         сервис купила компания «Яндекс» (размер сделки — $80 млн, около 2,6 млрд
         рублей на то время).
       </p>
-    </section>
+    </acticle>
   );
 }

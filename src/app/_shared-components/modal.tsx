@@ -46,7 +46,7 @@ function Modal({ onAccept, onDecline, children }: ModalProps) {
 Modal.Header = function Header({ children }: { children: React.ReactNode }) {
   const { onDecline } = useContext(ModalContext);
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <h3>{children}</h3>
       <Image
         onClick={() => onDecline()}
@@ -55,7 +55,7 @@ Modal.Header = function Header({ children }: { children: React.ReactNode }) {
         width={16}
         height={16}
       />
-    </div>
+    </header>
   );
 };
 

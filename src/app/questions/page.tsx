@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import Accordion from "./_components/accordion";
+import classNames from "classnames";
+
+import styles from "./page.module.css";
 
 const questions = [
   {
@@ -32,9 +35,9 @@ export default function Questions() {
   const [active, setActive] = useState<number | undefined>();
   return (
     <section className='spaced'>
-      <div className='paper'>
+      <header className={classNames("paper", styles.header)}>
         <h1>Вопросы и ответы</h1>
-      </div>
+      </header>
       {questions.map((q) => {
         return (
           <Accordion

@@ -34,9 +34,7 @@ export function QuantityCounter({ count, increment, decrement }: CounterProps) {
       </IconButton>
       <span className={styles.counter}>{count}</span>
       <IconButton disabled={count === 30} onClick={() => increment()}>
-        <strong>
-          <Image src='/icons/plus.svg' alt='' width={10} height={10} />
-        </strong>
+        <Image src='/icons/plus.svg' alt='' width={10} height={10} />
       </IconButton>
     </div>
   );

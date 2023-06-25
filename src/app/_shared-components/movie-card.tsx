@@ -38,7 +38,7 @@ export function MovieCard({ movie, variant }: CardProps) {
           <Modal.Actions acceptText='Да' declineText='Нет' />
         </Modal>
       )}
-      <div className={classNames("paper", styles.container)}>
+      <section className={classNames("paper", styles.container)}>
         <div className={styles.card}>
           <Image
             className={styles.poster}
@@ -51,9 +51,7 @@ export function MovieCard({ movie, variant }: CardProps) {
             <h3 className={styles.title}>
               <Link href={`film/${movie.id}`}>{movie.title}</Link>
             </h3>
-            <p>
-              <i>{GENRES[movie.genre]}</i>
-            </p>
+            <i>{GENRES[movie.genre]}</i>
           </div>
           <QuantityCounter
             count={count}
@@ -71,7 +69,7 @@ export function MovieCard({ movie, variant }: CardProps) {
             height={20}
           />
         )}
-      </div>
+      </section>
     </>
   );
 }

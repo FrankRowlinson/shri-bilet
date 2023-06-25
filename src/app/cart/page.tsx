@@ -27,7 +27,7 @@ export default function Cart() {
   }
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={classNames("spaced")}>
         {data
           .filter((movie: Movie) => ids.includes(movie.id))
@@ -36,10 +36,10 @@ export default function Cart() {
           })}
         <div className={styles.filler}></div>
       </div>
-      <div className={classNames(styles.total, "paper")}>
+      <footer className={classNames(styles.total, "paper")}>
         <h3>Итого билетов:</h3>
         <h3>{amount}</h3>
-      </div>
-    </div>
+      </footer>
+    </section>
   );
 }

@@ -6,7 +6,7 @@ type Props = {
 
 export default function ReviewSection({ reviews }: Props) {
   return (
-    <div className='spaced-24'>
+    <section className='spaced-24'>
       {reviews ? (
         reviews.map((review: Review) => {
           return <Review key={review.id} review={review} />;
@@ -14,6 +14,6 @@ export default function ReviewSection({ reviews }: Props) {
       ) : (
         <div>Нет отзывов. Оставьте первый!</div>
       )}
-    </div>
+    </section>
   );
 }

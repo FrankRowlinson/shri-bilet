@@ -36,7 +36,7 @@ export default function MovieInfo({ movie }: Props) {
           <Modal.Actions acceptText='Да' declineText='Нет' />
         </Modal>
       )}
-      <div className={classNames("paper", styles.card)}>
+      <section className={classNames("paper", styles.card)}>
         <Image
           src={movie.posterUrl}
           alt=''
@@ -45,38 +45,46 @@ export default function MovieInfo({ movie }: Props) {
           className={styles.poster}
         />
         <div className={styles.info}>
-          <div className={styles.header}>
+          <header className={styles.header}>
             <h1>{movie.title}</h1>
             <QuantityCounter
               count={count}
               increment={() => increment()}
               decrement={() => decrement()}
             />
-          </div>
-          <div className='spaced'>
+          </header>
+          <dl className='spaced'>
             <div className='flex'>
-              <h4>Жанр:</h4>
-              <p className={styles.feature}>{GENRES[movie.genre]}</p>
+              <dt>
+                <h4>Жанр:</h4>
+              </dt>
+              <dd className={styles.feature}>{GENRES[movie.genre]}</dd>
             </div>
             <div className='flex'>
-              <h4>Год выпуска:</h4>
-              <p className={styles.feature}>{movie.releaseYear}</p>
+              <dt>
+                <h4>Год выпуска:</h4>
+              </dt>
+              <dd className={styles.feature}>{movie.releaseYear}</dd>
             </div>
             <div className='flex'>
-              <h4>Рейтинг:</h4>
-              <p className={styles.feature}>{movie.rating}</p>
+              <dt>
+                <h4>Рейтинг:</h4>
+              </dt>
+              <dd className={styles.feature}>{movie.rating}</dd>
             </div>
             <div className='flex'>
-              <h4>Режиссер:</h4>
-              <p className={styles.feature}>{movie.director}</p>
+              <dt>
+                <h4>Режиссер:</h4>
+              </dt>
+              <dd className={styles.feature}>{movie.director}</dd>
             </div>
-          </div>
+          </dl>
           <div className={classNames(styles.description, "spaced")}>
             <h4>Описание</h4>
             <p>{movie.description}</p>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

@@ -38,7 +38,7 @@ export default function Accordion({
         setActive((currentActive) => (currentActive === id ? undefined : id));
       }}
     >
-      <div className={styles.title}>
+      <header className={styles.title}>
         <h2>{title}</h2>
         <Image
           className={iconClass}
@@ -47,7 +47,7 @@ export default function Accordion({
           width={24}
           height={24}
         />
-      </div>
+      </header>
       <div className={contentClass}>
         <div>{children}</div>
       </div>
