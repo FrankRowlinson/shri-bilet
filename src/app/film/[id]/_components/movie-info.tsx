@@ -2,44 +2,39 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import classNames from "classnames";
+
 import { RootState } from "@/store/store";
-
 import { Modal, QuantityCounter } from "@/app/_shared-components";
-
-import styles from "./movie-info.module.css";
 import { cartActions } from "@/store/features/cart";
 import { selectTicketAmount } from "@/store/features/cart/selectors";
 import { useAppDispatch } from "@/store/store";
 import { GENRES } from "@/constants";
+import useCart from "@/hooks/useCart";
+
+import styles from "./movie-info.module.css";
 
 type Props = {
   movie: Movie;
 };
 
 export default function MovieInfo({ movie }: Props) {
-  const [approvalOpen, setApprovalOpen] = useState(false);
-  const dispatch = useAppDispatch();
-  const count = useSelector(
-    (state: RootState) => selectTicketAmount(state, movie.id) || 0
-  );
-
-  const removeTicket = () => {
-    if (count === 1) {
-      setApprovalOpen(true);
-    } else {
-      dispatch(cartActions.removeTicket(movie.id));
-    }
-  };
+  const {
+    count,
+    increment,
+    decrement,
+    deleteTicket,
+    confirmationOpen,
+    closeConfirmationModal,
+  } = useCart(movie.id);
 
   return (
     <>
-      {approvalOpen && (
+      {confirmationOpen && (
         <Modal
           onAccept={() => {
-            dispatch(cartActions.deleteTicket(movie.id));
-            setApprovalOpen(false);
+            deleteTicket();
           }}
-          onDecline={() => setApprovalOpen(false)}
+          onDecline={() => closeConfirmationModal()}
         >
           <Modal.Header>Удаление билета</Modal.Header>
           <Modal.Content>Вы уверены, что хотите удалить билет?</Modal.Content>
@@ -59,8 +54,8 @@ export default function MovieInfo({ movie }: Props) {
             <h1>{movie.title}</h1>
             <QuantityCounter
               count={count}
-              increment={() => dispatch(cartActions.addTicket(movie.id))}
-              decrement={removeTicket}
+              increment={() => increment()}
+              decrement={() => decrement()}
             />
           </div>
           <div className='spaced'>

@@ -10,6 +10,7 @@ import { GENRES } from "@/constants";
 
 import { Modal, QuantityCounter } from "./";
 import styles from "./movie-card.module.css";
+import useCart from "@/hooks/useCart";
 
 type CardProps = {
   movie: Movie;
@@ -17,30 +18,24 @@ type CardProps = {
 };
 
 export function MovieCard({ movie, variant }: CardProps) {
-  const [approvalOpen, setApprovalOpen] = useState(false);
-  const dispatch = useAppDispatch();
-  const count = useAppSelector(
-    (state) => selectTicketAmount(state, movie.id) || 0
-  );
-
-  const removeTicket = () => {
-    if (count === 1) {
-      setApprovalOpen(true);
-    } else {
-      dispatch(cartActions.removeTicket(movie.id));
-    }
-  };
-  const deleteTicket = () => setApprovalOpen(true);
+  const {
+    count,
+    increment,
+    decrement,
+    deleteTicket,
+    confirmationOpen,
+    showConfirmationModal,
+    closeConfirmationModal,
+  } = useCart(movie.id);
 
   return (
     <>
-      {approvalOpen && (
+      {confirmationOpen && (
         <Modal
           onAccept={() => {
-            dispatch(cartActions.deleteTicket(movie.id));
-            setApprovalOpen(false);
+            deleteTicket();
           }}
-          onDecline={() => setApprovalOpen(false)}
+          onDecline={() => closeConfirmationModal()}
         >
           <Modal.Header>Удаление билета</Modal.Header>
           <Modal.Content>Вы уверены, что хотите удалить билет?</Modal.Content>
@@ -66,14 +61,14 @@ export function MovieCard({ movie, variant }: CardProps) {
           </div>
           <QuantityCounter
             count={count}
-            increment={() => dispatch(cartActions.addTicket(movie.id))}
-            decrement={removeTicket}
+            increment={() => increment()}
+            decrement={() => decrement()}
           />
         </div>
         {variant === "cart" && (
           <Image
             className={styles.close}
-            onClick={() => deleteTicket()}
+            onClick={() => showConfirmationModal()}
             src='icons/close.svg'
             alt=''
             width={20}
