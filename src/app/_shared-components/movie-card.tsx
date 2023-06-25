@@ -1,11 +1,7 @@
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
 
-import { cartActions } from "@/store/features/cart";
-import { selectTicketAmount } from "@/store/features/cart/selectors";
-import { useAppDispatch, useAppSelector } from "@/store/store";
 import { GENRES } from "@/constants";
 
 import { Modal, QuantityCounter } from "./";

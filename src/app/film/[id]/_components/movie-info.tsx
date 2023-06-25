@@ -1,13 +1,8 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
 import Image from "next/image";
 import classNames from "classnames";
 
-import { RootState } from "@/store/store";
 import { Modal, QuantityCounter } from "@/app/_shared-components";
-import { cartActions } from "@/store/features/cart";
-import { selectTicketAmount } from "@/store/features/cart/selectors";
-import { useAppDispatch } from "@/store/store";
+
 import { GENRES } from "@/constants";
 import useCart from "@/hooks/useCart";
 
