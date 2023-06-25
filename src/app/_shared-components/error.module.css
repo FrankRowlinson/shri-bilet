@@ -1,0 +1,13 @@
+.container {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message {
+  font-size: 1.5rem;
+  color: var(--input-placeholder);
+}

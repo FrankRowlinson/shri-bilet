@@ -3,7 +3,7 @@
 import classNames from "classnames";
 
 import styles from "./movie-list.module.css";
-import { Loader, MovieCard } from "../_shared-components/";
+import { Error, Loader, MovieCard } from "../_shared-components/";
 import { useGetMoviesForMainPageQuery } from "@/store/services/moviesApi";
 import { useDebounce } from "use-debounce";
 
@@ -35,7 +35,9 @@ export function MovieList({ search }: ListProps) {
   }
 
   if (!movies || error) {
-    return null;
+    return (
+      <Error>Не удалось загрузить список фильмов. Попробуйте еще раз</Error>
+    );
   }
 
   return (

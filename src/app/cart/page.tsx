@@ -11,7 +11,7 @@ import { useAppSelector } from "@/store/store";
 
 import styles from "./page.module.css";
 
-import { Loader, MovieCard } from "../_shared-components/";
+import { Error, Loader, MovieCard } from "../_shared-components/";
 
 export default function Cart() {
   const ids = useAppSelector((state) => selectMovieIds(state));
@@ -23,11 +23,7 @@ export default function Cart() {
   }
 
   if (!data || error) {
-    return (
-      <div className={styles.container}>
-        <h3>Корзина пуста...</h3>
-      </div>
-    );
+    return <Error>Корзина пуста...</Error>;
   }
 
   return (

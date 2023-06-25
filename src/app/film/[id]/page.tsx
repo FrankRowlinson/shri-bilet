@@ -2,7 +2,7 @@
 
 import { useGetMovieQuery } from "@/store/services/moviesApi";
 
-import { Loader } from "@/app/_shared-components";
+import { Error, Loader } from "@/app/_shared-components";
 
 import MovieInfo from "./_components/movie-info";
 import ReviewSection from "./_components/review-section";
@@ -28,14 +28,14 @@ function FilmPage({ params }: Props) {
   }
 
   if (!movie || movieError) {
-    return <div>Страница не найдена</div>;
+    return <Error>Страница не найдена</Error>;
   }
 
   return (
     <section className='spaced-24'>
       <MovieInfo movie={movie} />
       {reviewsError ? (
-        <div className='paper'>Не удалось загрузить отзывы</div>
+        <Error>Не удалось загрузить отзывы</Error>
       ) : (
         <ReviewSection reviews={reviews} />
       )}

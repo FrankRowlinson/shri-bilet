@@ -5,3 +5,4 @@ export { MovieCard } from "./movie-card";
 export { QuantityCounter } from "./quantity-counter";
 export { Select } from "./select";
 export { Loader } from "./loader";
+export { Error } from "./error";
