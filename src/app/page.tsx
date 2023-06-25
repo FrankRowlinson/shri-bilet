@@ -1,7 +1,7 @@
 "use client";
 
 import { useReducer } from "react";
-import { Filter, MovieList } from "./_components/";
+import { Filter, MovieList } from "./_page-components";
 import styles from "./page.module.css";
 
 const initialState: SearchState = {

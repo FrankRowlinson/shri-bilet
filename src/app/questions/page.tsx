@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Accordion from "./_components/accordion";
+import Accordion from "./_page-components/accordion";
 import classNames from "classnames";
 
 import styles from "./page.module.css";

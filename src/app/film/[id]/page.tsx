@@ -4,8 +4,8 @@ import { useGetMovieQuery } from "@/store/services/moviesApi";
 
 import { Error, Loader } from "@/app/_shared-components";
 
-import MovieInfo from "./_components/movie-info";
-import ReviewSection from "./_components/review-section";
+import MovieInfo from "./_page-components/movie-info";
+import ReviewSection from "./_page-components/review-section";
 import { useGetReviewsForMovieQuery } from "@/store/services/reviewsApi";
 
 type Props = { params: { id: string } };

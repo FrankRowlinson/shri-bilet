@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { GENRES } from "@/constants";
 
 import { SearchActionKind } from "../page";
-import { Error, Input, Select } from "../_shared-components/";
+import { Error, Input, Select } from "../_shared-components";
 
 import styles from "./filter.module.css";
 import { useGetCinemasQuery } from "@/store/services/cinemasApi";

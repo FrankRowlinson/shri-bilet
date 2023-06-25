@@ -3,7 +3,7 @@
 import classNames from "classnames";
 
 import styles from "./movie-list.module.css";
-import { Error, Loader, MovieCard } from "../_shared-components/";
+import { Error, Loader, MovieCard } from "../_shared-components";
 import { useGetMoviesForMainPageQuery } from "@/store/services/moviesApi";
 import { useDebounce } from "use-debounce";
 
