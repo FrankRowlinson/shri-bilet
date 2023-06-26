@@ -2,20 +2,17 @@
 
 import classNames from "classnames";
 
-import {
-  selectMovieIds,
-  selectTotalTickets,
-} from "@/store/features/cart/selectors";
+import { selectMovieIds } from "@/store/features/cart/selectors";
 import { useGetMoviesForCartQuery } from "@/store/services/moviesApi";
 import { useAppSelector } from "@/store/store";
 
 import styles from "./page.module.css";
 
 import { Error, Loader, MovieCard } from "../_shared-components/";
+import CartTotal from "./_page-components/cart-total";
 
 export default function Cart() {
   const ids = useAppSelector((state) => selectMovieIds(state));
-  const amount = useAppSelector((state) => selectTotalTickets(state));
   const { data, isLoading, error } = useGetMoviesForCartQuery(ids);
 
   if (isLoading) {
@@ -36,10 +33,7 @@ export default function Cart() {
           })}
         <div className={styles.filler}></div>
       </div>
-      <footer className={classNames(styles.total, "paper")}>
-        <h3>Итого билетов:</h3>
-        <h3>{amount}</h3>
-      </footer>
+      <CartTotal />
     </section>
   );
 }
